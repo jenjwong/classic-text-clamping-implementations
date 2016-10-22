@@ -1,26 +1,32 @@
 body {
   margin: 100px 100px 100px 100px;
-  line-height: 1.2em;
-  text-align: left;
+  font-family: 'Bungee Hairline', cursive;
 }
 
 .text-clamp-on {
-  text-align: left;
+  white-space: nowrap;
   overflow: hidden;
-  line-height: 1.2em;
-  max-height: 3.6em;
+  text-overflow: ellipsis;
 }
 
 .title {
   max-width: 98%;
   line-height: 1em;
+  font-weight: bold;
 }
 
 .story {
-  margin-bottom: 0;
-
+  margin-bottom: 5%;
+  cursor: pointer;
 }
 
 button {
   margin-left: 90%;
+}
+
+.top-title {
+  font-family: 'Codystar', cursive;
+  font-size: 500%;
+  font-weight: bold;
+  margin-bottom: 8%;
 }

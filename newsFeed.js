@@ -1,29 +1,7 @@
 $( document ).ready(function() {
 
-  const walkDomSiblings = (node, selector, direction) => {
-    let currentNode = node;
-    let isFound = false;
-    while (!isFound) {
-      if (direction === 'up') {
-        currentNode = currentNode.previousElementSibling;
-      } else {
-        currentNode = currentNode.nextElementSibling;
-      }
-      if (Array.from(currentNode.classList).indexOf(selector) > -1) {
-        isFound = true;
-      }
-    }
-    return currentNode;
-  };
-
   const textClamp = (e) => {
-    const node = walkDomSiblings(e.target, 'story', 'up');
-    node.classList.toggle('text-clamp-on');
-    if (e.target.textContent === 'Show More') {
-      e.target.textContent = 'Show Less';
-    } else {
-      e.target.textContent = 'Show More';
-    }
+    e.target.classList.toggle('text-clamp-on');
   };
 
   const createNewsItem = (titleText, storyText) => {
@@ -37,13 +15,10 @@ $( document ).ready(function() {
     const story = document.createElement('p');
     story.className = 'story';
     story.classList.add('text-clamp-on');
+    story.addEventListener('click', textClamp, false);
     story.textContent = storyText;
     div.appendChild(titleDiv);
     div.appendChild(story);
-    const showMore = document.createElement('button');
-    showMore.textContent = 'Show More';
-    showMore.addEventListener('click', textClamp, false);
-    div.appendChild(showMore);
     return div;
   };
 
@@ -63,6 +38,7 @@ $( document ).ready(function() {
   const success = (data) => {
     renderNewsItems(newsItemsEl(data.posts), '.main');
   };
+
 
   const initialize = () => {
     const WEBHOSE_ENDPOINT = "https://webhose.io/search?token=b758fae4-ecb1-4893-bafb-d50474d6e9fa&format=json&q=Grilled%20Cheese%20Sandwich";
