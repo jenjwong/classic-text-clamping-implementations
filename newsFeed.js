@@ -40,16 +40,13 @@ $( document ).ready(function() {
     story.textContent = storyText;
     div.appendChild(titleDiv);
     div.appendChild(story);
-    const showMore = document.createElement('button');
-    showMore.textContent = 'Show More';
-    showMore.addEventListener('click', textClamp, false);
-    div.appendChild(showMore);
     return div;
   };
 
   const newsItemsEl = (apiReturnArray) => {
     const div = document.createElement('div');
     apiReturnArray.forEach((item) => {
+      !item.title ? item.title = 'Gilled Cheese!' : null;
       const newsItem = createNewsItem(item.title, item.text);
       div.appendChild(newsItem);
     });
@@ -60,6 +57,28 @@ $( document ).ready(function() {
     document.querySelector(selector).appendChild(toRender);
   };
 
+  const isOverflow = (node) => {
+    const ratio = node.scrollHeight/window.innerHeight
+    return ratio > 0.07125
+  }
+
+  const createOverflowButton = (node) => {
+    const showMore = document.createElement('button');
+    showMore.textContent = 'Show More';
+    showMore.addEventListener('click', textClamp, false);
+    return showMore
+  }
+
+  const appendOverflowButton = () => {
+    const contentArray = Array.from(document.getElementsByClassName('story'));
+    contentArray.forEach((node) => {
+      if (isOverflow(node)) {
+        const button = createOverflowButton(node);
+        node.parentNode.insertBefore(button, null);
+      }
+    });
+  };
+
   const success = (data) => {
     renderNewsItems(newsItemsEl(data.posts), '.main');
   };
@@ -68,6 +87,7 @@ $( document ).ready(function() {
     const WEBHOSE_ENDPOINT = "https://webhose.io/search?token=b758fae4-ecb1-4893-bafb-d50474d6e9fa&format=json&q=Grilled%20Cheese%20Sandwich";
     $.get(WEBHOSE_ENDPOINT, function( data ) {
       success(data);
+      appendOverflowButton();
     });
   };
 
