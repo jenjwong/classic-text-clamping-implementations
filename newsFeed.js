@@ -1,5 +1,4 @@
-$( document ).ready(function() {
-
+$( document ).ready(function(){
   const walkDomSiblings = (node, selector, direction) => {
     let currentNode = node;
     let isFound = false;
@@ -43,7 +42,7 @@ $( document ).ready(function() {
     return div;
   };
 
-  const newsItemsEl = (apiReturnArray) => {
+  const createNewsItemsList = (apiReturnArray) => {
     const div = document.createElement('div');
     apiReturnArray.forEach((item) => {
       !item.title ? item.title = 'Gilled Cheese!' : null;
@@ -58,16 +57,16 @@ $( document ).ready(function() {
   };
 
   const isOverflow = (node) => {
-    const ratio = node.scrollHeight/window.innerHeight
-    return ratio > 0.07125
-  }
+    const ratio = node.scrollHeight / window.innerHeight;
+    return ratio > 0.07125;
+  };
 
-  const createOverflowButton = (node) => {
+  const createOverflowButton = () => {
     const showMore = document.createElement('button');
     showMore.textContent = 'Show More';
     showMore.addEventListener('click', textClamp, false);
-    return showMore
-  }
+    return showMore;
+  };
 
   const appendOverflowButton = () => {
     const contentArray = Array.from(document.getElementsByClassName('story'));
@@ -79,15 +78,26 @@ $( document ).ready(function() {
     });
   };
 
-  const success = (data) => {
-    renderNewsItems(newsItemsEl(data.posts), '.main');
+  const animateLoader = () => {
+    document.querySelector('.loader img').classList.add('bike');
   };
 
+  const removeLoader = () => {
+    const loader = document.querySelector('.loader');
+    loader.parentNode.removeChild(loader);
+  };
+
+  const success = (data) => {
+    renderNewsItems(createNewsItemsList(data.posts), '.main');
+    appendOverflowButton();
+    animateLoader();
+    setTimeout(() =>{ removeLoader() }, 3000)};
+
   const initialize = () => {
-    const WEBHOSE_ENDPOINT = "https://webhose.io/search?token=b758fae4-ecb1-4893-bafb-d50474d6e9fa&format=json&q=Grilled%20Cheese%20Sandwich";
-    $.get(WEBHOSE_ENDPOINT, function( data ) {
+    const WEBHOSE_ENDPOINT = "https://webhose.io/search?token=b758fae4-ecb1-4893-bafb-d50474d6e9fa&format=json&q=Grilled%20Cheese%20Sandwich&size=20";
+
+    $.get(WEBHOSE_ENDPOINT, (data) => {
       success(data);
-      appendOverflowButton();
     });
   };
 

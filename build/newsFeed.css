@@ -1,0 +1,90 @@
+body {
+  margin: 10%;
+  font-family: 'Bungee Hairline', cursive;
+}
+
+.text-clamp-on {
+  overflow: hidden;
+  line-height: 1.2em;
+  max-height: 3.6em;
+}
+
+.title {
+  max-width: 98%;
+  line-height: 1em;
+  font-weight: bold;
+}
+
+.story {
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+button {
+  margin-left: 90%;
+  font-family: 'Bungee Hairline', cursive;
+  font-size: 0.5em;
+}
+
+.top-title {
+  font-family: 'Codystar', cursive;
+  font-size: 500%;
+  font-weight: bold;
+  margin-bottom: 8%;
+}
+
+.container {
+  margin-bottom: 4%;
+}
+
+.loader img {
+  width: auto;
+  height: 65vh;
+}
+
+.bike {
+  -webkit-animation-duration: 3.5s;
+          animation-duration: 3.5s;
+  -webkit-animation-name: slidein;
+          animation-name: slidein;
+}
+
+@-webkit-keyframes slidein {
+  from {
+    margin-left: 0%;
+    -webkit-animation-timing-function: cubic-bezier(.3,1,.9,.2);
+            animation-timing-function: cubic-bezier(.3,1,.9,.2);
+  }
+
+  75% {
+    margin-left: 25%;
+    -webkit-animation-timing-function: cubic-bezier(.1,1,.9,.3);
+            animation-timing-function: cubic-bezier(.1,1,.9,.3);
+  }
+
+  to {
+    margin-left: 170%;
+    -webkit-animation-timing-function: cubic-bezier(.3,1,.9,.2);
+            animation-timing-function: cubic-bezier(.3,1,.9,.2);
+  }
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 0%;
+    -webkit-animation-timing-function: cubic-bezier(.3,1,.9,.2);
+            animation-timing-function: cubic-bezier(.3,1,.9,.2);
+  }
+
+  75% {
+    margin-left: 25%;
+    -webkit-animation-timing-function: cubic-bezier(.1,1,.9,.3);
+            animation-timing-function: cubic-bezier(.1,1,.9,.3);
+  }
+
+  to {
+    margin-left: 170%;
+    -webkit-animation-timing-function: cubic-bezier(.3,1,.9,.2);
+            animation-timing-function: cubic-bezier(.3,1,.9,.2);
+  }
+}

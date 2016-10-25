@@ -23,6 +23,7 @@ body {
 button {
   margin-left: 90%;
   font-family: 'Bungee Hairline', cursive;
+  font-size: 0.5em;
 }
 
 .top-title {
@@ -34,4 +35,31 @@ button {
 
 .container {
   margin-bottom: 4%;
+}
+
+.loader img {
+  width: auto;
+  height: 65vh;
+}
+
+.bike {
+  animation-duration: 3.5s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 0%;
+    animation-timing-function: cubic-bezier(.3,1,.9,.2);
+  }
+
+  75% {
+    margin-left: 25%;
+    animation-timing-function: cubic-bezier(.1,1,.9,.3);
+  }
+
+  to {
+    margin-left: 170%;
+    animation-timing-function: cubic-bezier(.3,1,.9,.2);
+  }
 }

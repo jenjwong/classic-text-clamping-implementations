@@ -1,0 +1,24 @@
+{
+  "name": "showMore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "newsFeed.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jenjwong/classic-text-clamping-implementations.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jenjwong/classic-text-clamping-implementations/issues"
+  },
+  "homepage": "https://github.com/jenjwong/classic-text-clamping-implementations#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1"
+  }
+}
