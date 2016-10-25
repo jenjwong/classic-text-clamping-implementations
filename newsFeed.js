@@ -94,7 +94,7 @@ $( document ).ready(function(){
     setTimeout(() =>{ removeLoader() }, 3000)};
 
   const initialize = () => {
-    const WEBHOSE_ENDPOINT = "https://webhose.io/search?token=b758fae4-ecb1-4893-bafb-d50474d6e9fa&format=json&q=Grilled%20Cheese%20Sandwich&size=5";
+    const WEBHOSE_ENDPOINT = "https://webhose.io/search?token=b758fae4-ecb1-4893-bafb-d50474d6e9fa&format=json&q=Grilled%20Cheese%20Sandwich&size=10";
 
     $.get(WEBHOSE_ENDPOINT, (data) => {
       success(data);
