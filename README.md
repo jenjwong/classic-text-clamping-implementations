@@ -1,1 +1,1 @@
-https://jenjwong.github.io/classic-text-clamping-implementations/
+https://jenjwong.github.io/text-clamping-implementations/
